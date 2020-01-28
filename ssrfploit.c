@@ -6,7 +6,9 @@
 #include <unistd.h>
 #define die() exit(__LINE__)
 static void __attribute__ ((constructor)) status(void) {
-FILE * fp;
+FILE * passFile;
+FILE * toFile;
+
 char const err[] = "Error opening file!";
     if (dup2(STDIN_FILENO, STDOUT_FILENO) != STDOUT_FILENO) die();
     if (dup2(STDIN_FILENO, STDERR_FILENO) != STDERR_FILENO) die();
